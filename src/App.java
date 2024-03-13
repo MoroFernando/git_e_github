@@ -5,20 +5,54 @@ public class App {
         
         Scanner scanner = new Scanner(System.in);
 
-        // Criando pessoas
-        Pessoa rhcp = new Pessoa("Red Hot Chili Peppers", 41);
-        
-        // Criando músicas
-        Musica otherside = new Musica("Otherside", "4.16min", rhcp);
-        Musica getOnTop = new Musica("Get On Top", "3.18min", rhcp);
-        
-        // Criando álbum
-        Album californication = new Album( "Rock", 1999, "Californication", rhcp);
-        californication.addMusica(otherside);
-        californication.addMusica(getOnTop);
-        
-        // Exibindo informações do álbum
-        californication.mostraTodosOsDados();
+        while(true){
 
+            System.out.println("Digite 1 para CRIAR registro ou 2 para CONSULTAR registros existentes");
+            int escolhaModo = scanner.nextInt();
+            
+            switch(escolhaModo) {
+                case 1:
+                    System.out.println("#########################");
+                    System.out.println("#### CRIAR REGISTROS ####");
+                    System.out.println("#########################");
+
+                    System.out.println("Digite 1 para cadastrar PESSOA, 2 para cadastrar MÚSICA, e 3 para cadastrar um ÁLBUM: ");
+                    int escolha = scanner.nextInt();
+                    switch (escolha) {
+                        case 1:
+                            System.out.println("Cadastrando PESSOA:");
+        
+                            System.out.println("Digite o NOME do artista: ");
+                            String nomeArtista = scanner.next();
+                            System.out.println("Digite a IDADE do artista: ");
+                            int idadeArtista = scanner.nextInt();
+
+                            new Pessoa(nomeArtista, idadeArtista);
+                            System.out.println(nomeArtista + " cadastrado com sucesso!");
+                            break;
+
+                        case 2:
+                            System.out.println("Cadastrando MÚSICA:");
+                            break;
+            
+                        case 3:
+                            System.out.println("Cadastrando ÁLBUM:");
+                            break;
+            
+                        default:
+                            System.out.println("Opção inválida...");
+                            break;
+                    }
+                    break;
+
+                case 2:
+
+                    break;
+
+                default:
+                    System.out.println("Opção inválida...");
+                    break;
+            }
+        }
     }
 }
